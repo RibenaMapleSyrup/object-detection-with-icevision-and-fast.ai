@@ -17,20 +17,18 @@ def main(argv):
     modelpath = ''
     imagepath = ''
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["model=", "image="])
+        opts, args = getopt.getopt(argv, "hm:i:", ["model=", "image="])
     except getopt.GetoptError:
-        print('inference.py -model <modelpath> -image <imagepath>')
+        print('inference.py -m <modelpath> -i <imagepath>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('inference.py -model <modelpath> -image <imagepath>')
+            print('inference.py -m <modelpath> -i <imagepath>')
             sys.exit()
-        elif opt in ("-i", "--model"):
+        elif opt in ("-m", "--model"):
             modelpath = arg
-            print(modelpath)
-        elif opt in ("-o", "--image"):
+        elif opt in ("-i", "--image"):
             imagepath = arg
-            print(imagepath)
     return modelpath, imagepath
 
 modelpath, imagepath = main(sys.argv[1:])
